@@ -1,0 +1,71 @@
+
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
+
+
+<body>
+   
+
+    <form method="post" action="">
+        <div class="box">
+        <h1>Change your password</h1>
+        {% csrf_token %}
+        {{form.oldpassword}}
+        {{form.newpassword}}
+        {{form.repeatnewpassword}}
+        <p>{{error}}<p>
+          
+        <a href="#" onclick="this.closest('form').submit();return false;"><div class="btn">Edit</div></a>
+        
+        <a href="/user/{{userid}}/edit">
+            <div id="btn2">Back</div>
+        </a>
+
+        
+        </div> <!-- End Box -->
+          
+    </form>
+
+    <script>
+        document.getElementById("id_oldpassword").value = "old password";
+        document.getElementById("id_oldpassword").onfocus=function (){
+        if(this.value=="old password"){
+            this.value='';
+        }
+        }
+        document.getElementById("id_oldpassword").onblur=function (){
+        if(this.value==''){
+            this.value="old password";
+        }
+        }
+        
+        document.getElementById("id_newpassword").value = "new password";
+        document.getElementById("id_newpassword").onfocus=function (){
+            if(this.value=="new password"){
+                this.value='';
+            }
+        }
+        document.getElementById("id_newpassword").onblur=function (){
+            if(this.value==''){
+                this.value="new password";
+            }
+        }
+        
+        document.getElementById("id_repeatnewpassword").value = "repeat new password";
+        document.getElementById("id_repeatnewpassword").onfocus=function (){
+            if(this.value=="repeat new password"){
+                this.value='';
+            }
+        }
+        document.getElementById("id_repeatnewpassword").onblur=function (){
+            if(this.value==''){
+                 this.value="repeat new password";
+            }
+        }
+    </script>
+        
+        
+        
+</body>
