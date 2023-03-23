@@ -9,4 +9,4 @@ For the views, I check that the status code is 200 and that the right templates 
 For the urls, I check that the reverse works well.
 For these tests, I run them in another database called 'testdb' (you can see how I did it in settings.py).
 
-At the level of security, I have changed the url of the admin that you can see in 'urls.py' but most of my work is in the 'deployed_settings.py', which is the settings to be used when the site goes live.
+At the level of security, I have changed the url of the admin that you can see in 'urls.py' but most of my work is in the 'deployed_settings.py', which is the settings to be used when the site goes live. I changed the debug to False, ensured to be in https, changed the authorized hosts, and hid the secret key. To hide it, I used a .env file that I hid in my .gitignore. Then, I just have to load the secret key in my settings file.
